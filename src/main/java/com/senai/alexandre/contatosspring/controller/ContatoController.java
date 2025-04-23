@@ -7,29 +7,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pacientes")
+@RequestMapping("/contatos")
+@CrossOrigin("*")
 public class ContatoController {
 
     @Autowired
     private ContatoService contatoService;
 
     @GetMapping
-    public List<Contato> getAllPacientes() {
+    public List<Contato> getAllContatos() {
         return contatoService.findAll();
     }
 
     @PostMapping
-    public Contato savePaciente(@RequestBody Contato contato) {
+    public Contato saveContato(@RequestBody Contato contato) {
         return contatoService.save(contato);
     }
 
     @PutMapping
-    public Contato updatePaciente(@RequestBody Contato contato) {
+    public Contato updateContato(@RequestBody Contato contato) {
         return contatoService.update(contato);
     }
 
     @DeleteMapping("/{id}")
-    public void deletePaciente(@PathVariable Integer id) {
+    public void deleteContato(@PathVariable Integer id) {
         this.contatoService.delete(id);
     }
 }
