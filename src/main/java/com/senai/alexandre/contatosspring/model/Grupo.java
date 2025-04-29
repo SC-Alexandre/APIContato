@@ -21,16 +21,21 @@ public class Grupo {
 
     public Grupo() {}
 
+    public Grupo(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     public Grupo(String nome) {
         this.nome = nome;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public String getNome() {
+        return nome;
+    }
 
-    public List<Contato> getContatos() { return contatos; }
-    public void setContatos(List<Contato> contatos) { this.contatos = contatos; }
 }

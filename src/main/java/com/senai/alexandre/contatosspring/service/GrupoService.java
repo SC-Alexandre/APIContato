@@ -12,30 +12,22 @@ public class GrupoService {
     @Autowired
     private GrupoRepository grupoRepository;
 
-    public List<Grupo> listarGrupos() {
+    public Grupo save(Grupo grupo){
+        return this.grupoRepository.save(grupo);
+    }
+
+    public List<Grupo> findAll(){
         return grupoRepository.findAll();
     }
 
-    public Grupo buscarGrupoPorId(Integer id) {
-        return grupoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Grupo não encontrado com o ID: " + id));
+    public Grupo update(Grupo grupo){
+        return this.save(grupo);
     }
 
-    public Grupo adicionarGrupo(Grupo grupo) {
-        return grupoRepository.save(grupo);
-    }
-
-    public Grupo editarGrupo(Grupo grupo) {
-        if (!grupoRepository.existsById(grupo.getId())) {
-            throw new RuntimeException("Grupo não encontrado para edição com o ID: " + grupo.getId());
-        }
-        return grupoRepository.save(grupo);
-    }
-
-    public void deletarGrupo(Integer id) {
+    public void delete(Integer id){
         if (!grupoRepository.existsById(id)) {
-            throw new RuntimeException("Grupo não encontrado para exclusão com o ID: " + id);
+            throw new RuntimeException("Grupo não encontrado para exclusão.");
         }
-        grupoRepository.deleteById(id);
+        this.grupoRepository.deleteById(id);
     }
 }

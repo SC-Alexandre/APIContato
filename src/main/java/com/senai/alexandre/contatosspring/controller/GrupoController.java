@@ -1,6 +1,8 @@
 package com.senai.alexandre.contatosspring.controller;
 
+import com.senai.alexandre.contatosspring.model.Contato;
 import com.senai.alexandre.contatosspring.model.Grupo;
+import com.senai.alexandre.contatosspring.service.ContatoService;
 import com.senai.alexandre.contatosspring.service.GrupoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,32 +18,22 @@ public class GrupoController {
     private GrupoService grupoService;
 
     @GetMapping
-    public List<Grupo> listarGrupos() {
-        return grupoService.listarGrupos();
-    }
-
-    @GetMapping("/{id}")
-    public Grupo buscarGrupo(@PathVariable Integer id) {
-        return grupoService.buscarGrupoPorId(id);
+    public List<Grupo> getAllGrupos() {
+        return grupoService.findAll();
     }
 
     @PostMapping
-    public Grupo adicionarGrupo(@RequestBody Grupo grupo) {
-        return grupoService.adicionarGrupo(grupo);
+    public Grupo saveGrupo(@RequestBody Grupo grupo) {
+        return grupoService.save(grupo);
     }
 
     @PutMapping
-    public Grupo editarGrupo(@RequestBody Grupo grupo) {
-        return grupoService.editarGrupo(grupo);
+    public Grupo updateGrupo(@RequestBody Grupo grupo) {
+        return grupoService.update(grupo);
     }
 
     @DeleteMapping("/{id}")
-    public void deletarGrupo(@PathVariable Integer id) {
-        grupoService.deletarGrupo(id);
-    }
-
-    @GetMapping("/grupo/{grupoId}")
-    public List<Contato> listarContatosPorGrupo(@PathVariable int grupoId) {
-        return contatoService.listarContatosPorGrupo(grupoId);
+    public void deleteGrupo(@PathVariable Integer id) {
+        this.grupoService.delete(id);
     }
 }
