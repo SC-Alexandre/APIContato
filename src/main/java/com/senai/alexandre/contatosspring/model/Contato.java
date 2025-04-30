@@ -7,7 +7,7 @@ public class Contato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer number;
+    private Integer id;
 
     @Column(name = "nome", nullable = false, length = 100)
     private String name;
@@ -21,15 +21,14 @@ public class Contato {
     public Contato() {
     }
 
-    public Contato(Integer number, String name, String email, String phone) {
-        this.number = number;
+    public Contato(String name, String email, String phone) {
         this.name = name;
         this.email = email;
         this.phone = phone;
     }
 
-    public Integer getNumber() {
-        return number;
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {
@@ -42,5 +41,21 @@ public class Contato {
 
     public String getPhone() {
         return phone;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

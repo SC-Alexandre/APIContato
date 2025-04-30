@@ -15,10 +15,6 @@ public class Grupo {
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
-    @ManyToMany(mappedBy = "grupos")
-    @JsonIgnore
-    private List<Contato> contatos;
-
     public Grupo() {}
 
     public Grupo(int id, String nome) {
