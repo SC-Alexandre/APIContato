@@ -1,6 +1,6 @@
 package com.senai.alexandre.contatosspring.controller;
 
-import com.senai.alexandre.contatosspring.model.Contato;
+import com.senai.alexandre.contatosspring.entity.Contato;
 import com.senai.alexandre.contatosspring.service.ContatoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,4 +33,10 @@ public class ContatoController {
     public void deleteContato(@PathVariable Integer id) {
         this.contatoService.delete(id);
     }
+    
+    @GetMapping("/grupo/{grupoId}")
+    public List<Contato> listarContatosPorGrupo(@PathVariable int grupoId) {
+        return contatoService.listarContatosPorGrupo(grupoId);
+    }
+
 }

@@ -1,7 +1,7 @@
 package com.senai.alexandre.contatosspring.controller;
 
-import com.senai.alexandre.contatosspring.model.Contato;
-import com.senai.alexandre.contatosspring.model.Grupo;
+import com.senai.alexandre.contatosspring.entity.Contato;
+import com.senai.alexandre.contatosspring.entity.Grupo;
 import com.senai.alexandre.contatosspring.service.ContatoService;
 import com.senai.alexandre.contatosspring.service.GrupoService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.senai.alexandre.contatosspring.service;
 
-import com.senai.alexandre.contatosspring.model.Grupo;
+import com.senai.alexandre.contatosspring.entity.Grupo;
 import com.senai.alexandre.contatosspring.repository.GrupoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
