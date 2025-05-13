@@ -20,7 +20,7 @@ public class Contato {
     private String phone;
 
     @Column(name = "favorito")
-    private Boolean favorite;
+    private Boolean favorito;
 
     @ManyToMany
     @JoinTable(
@@ -33,12 +33,12 @@ public class Contato {
     public Contato() {
     }
 
-    public Contato(Integer id, String name, String email, String phone, Boolean favorite, List<Grupo> grupos) {
+    public Contato(Integer id, String name, String email, String phone, Boolean favorito, List<Grupo> grupos) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.favorite = favorite;
+        this.favorito = favorito;
         this.grupos = grupos;
     }
 
@@ -74,12 +74,12 @@ public class Contato {
         this.phone = phone;
     }
 
-    public Boolean getFavorite() {
-        return favorite;
+    public Boolean getFavorito() {
+        return favorito;
     }
 
-    public void setFavorite(Boolean favorite) {
-        this.favorite = favorite;
+    public void setFavorito(Boolean favorite) {
+        this.favorito = favorite;
     }
 
     public List<Grupo> getGrupos() {

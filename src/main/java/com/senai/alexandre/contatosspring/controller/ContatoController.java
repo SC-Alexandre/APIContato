@@ -3,8 +3,10 @@ package com.senai.alexandre.contatosspring.controller;
 import com.senai.alexandre.contatosspring.entity.Contato;
 import com.senai.alexandre.contatosspring.service.ContatoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/contatos")
@@ -39,4 +41,10 @@ public class ContatoController {
         return contatoService.listarContatosPorGrupo(grupoId);
     }
 
+    @PatchMapping("/{id}/favorito")
+    public ResponseEntity<Void> atualizarFavorito(@PathVariable int id, @RequestBody Map<String, Boolean> payload) {
+        boolean favorito = payload.get("favorito");
+        contatoService.atualizarFavorito(id, favorito);
+        return ResponseEntity.noContent().build();
+    }
 }

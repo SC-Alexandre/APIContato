@@ -68,4 +68,11 @@ public class ContatoService {
         return contatoRepository.save(contato);
     }
 
+    public void atualizarFavorito(int id, boolean favorito) {
+        Contato contato = contatoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Contato não encontrado"));
+        contato.setFavorito(favorito);
+        contatoRepository.save(contato);
+    }
+
 }
